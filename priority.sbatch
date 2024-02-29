@@ -6,7 +6,7 @@
 ## All other lines are read by the shell.
 
 ## Specify the account to use; you must use your priority account.
-#SBATCH --account=priority-<name>        
+#SBATCH --account=priority-rci
 
 ## Use the priority partition.
 #SBATCH --partition=priority
@@ -35,9 +35,11 @@
 ## Run 'man sbatch' for more information on the options above.
 ## Below, enter commands needed to execute your workloadKKKKKKKKKKKKKKK
 
-# print out the date
+# Print out the date.
 date
-# print the compute node's name
+# Print which partition we are using.
+echo $SLURM_JOB_PARTITION
+# Print the compute node's name.
 hostname -s
-# print the date again
+# Print the date again.
 date
