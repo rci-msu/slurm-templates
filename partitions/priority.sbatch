@@ -15,7 +15,6 @@
 ## logical processors, not physical cores.
 #SBATCH --cpus-per-task=2
 
-## Amount of memory to allocate.
 #SBATCH --mem=2G
 
 ## Maximum job run time. Format is days-HH:MM:SS.
