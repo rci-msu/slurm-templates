@@ -13,7 +13,7 @@
 
 ## Number of CPUs to allocate. Note that in the slurm, CPUs correspond to
 ## logical processors, not physical cores.
-#SBATCH --cpus-per-task=64
+#SBATCH --cpus-per-task=2
 
 ## Amount of memory to allocate.
 #SBATCH --mem=2G
