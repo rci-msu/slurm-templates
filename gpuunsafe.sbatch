@@ -37,7 +37,7 @@
 ##SBATCH --mail-type=ALL                 # specify conditions on which to recieve emails
 
 ## Run 'man sbatch' for more information on the options above.
-## Below, enter commands needed to execute your workloadKKKKKKKKKKKKKKK
+## Below, enter commands needed to execute your workload
 
 # Print out the date.
 date
