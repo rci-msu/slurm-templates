@@ -27,9 +27,10 @@
 ## Set job name.
 #SBATCH --job-name=gputest-example
 
-## Set output log and error log filenames. %j is the job number.
-#SBATCH --output=gputest-example-%j.out
-#SBATCH --error=gputest-example-%j.err
+## Set output log and error log filenames. 
+## %j is the job number and %x is the job name set above 
+#SBATCH --output=%x-%j.out
+#SBATCH --error=%x-%j.err
 
 ## Remove one # and fill out the following lines if you want to receive emails.
 ##SBATCH --mail-user=      # enter your email to recieve email notifications
