@@ -6,7 +6,7 @@
 ## All other lines are read by the shell.
 
 ## Specify the account to use; you must use your group account.
-#SBATCH --account=group-rci
+#SBATCH --account=group-
 
 ## Use the test partition.
 #SBATCH --partition=test

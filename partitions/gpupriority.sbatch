@@ -6,7 +6,7 @@
 ## All other lines are read by the shell.
 
 ## Specify the account to use; you must use your priority account.
-#SBATCH --account=priority-rci
+#SBATCH --account=priority-
 
 ## Use the gpupriority partition.
 #SBATCH --partition=gpupriority
