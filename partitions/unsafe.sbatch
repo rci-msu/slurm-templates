@@ -1,43 +1,45 @@
 #!/bin/bash
 ##
-## Priority partition sbatch example.
+## Unsafe partition sbatch example.
 ##
 ## Lines starting with #SBATCH are read by Slurm. Lines starting with ## are comments.
 ## All other lines are read by the shell.
 
-## Specify the account to use; you must use your priority account.
-#SBATCH --account=priority-<name>        
+## Specify the account to use; you must use your group account.
+#SBATCH --account=group-rci
 
-## Use the priority partition.
-#SBATCH --partition=priority
+## Use the unsafe partition.
+#SBATCH --partition=unsafe
 
 ## Number of CPUs to allocate. Note that in the slurm, CPUs correspond to
 ## logical processors, not physical cores.
 #SBATCH --cpus-per-task=2
 
-## Amount of memory to allocate.
 #SBATCH --mem=2G
 
 ## Maximum job run time. Format is days-HH:MM:SS.
 #SBATCH --time=0-00:01:00
 
 ## Set job name.
-#SBATCH --job-name=priority-example
+#SBATCH --job-name=unsafe-example
 
-## Set output log and error log filenames. %j is the job number.
-#SBATCH --output=priority-example-%j.out
-#SBATCH --error=priority-example-%j.err
+## Set output log and error log filenames. 
+## %j is the job number and %x is the job name set above 
+#SBATCH --output=%x-%j.out
+#SBATCH --error=%x-%j.err
 
 ## Remove one # and fill out the following lines if you want to receive emails.
 ##SBATCH --mail-user=      # enter your email to recieve email notifications
 ##SBATCH --mail-type=ALL                 # specify conditions on which to recieve emails
 
 ## Run 'man sbatch' for more information on the options above.
-## Below, enter commands needed to execute your workloadKKKKKKKKKKKKKKK
+## Below, enter commands needed to execute your workload
 
-# print out the date
+# Print out the date
 date
-# print the compute node's name
-hostname -s
-# print the date again
+# Print which partition we are using
+echo $SLURM_JOB_PARTITION
+# Print the compute node's name
+echo "Hello from $(hostname -s)"
+# Print the date again
 date
