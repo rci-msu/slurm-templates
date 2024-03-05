@@ -8,7 +8,7 @@
 ## Specify the account to use; you must use your group account.
 #SBATCH --account=group-
 
-## Use the nextgen partition.
+## Use the nextgen-long partition.
 #SBATCH --partition=nextgen-long
 
 ## Number of CPUs to allocate. Note that in the slurm, CPUs correspond to
