@@ -1,0 +1,4 @@
+name: Tempest test partition template
+host: tempest
+script: test.sbatch
+notes: Basic sbatch script for submitting to the test partition. Remember to update the account name.
