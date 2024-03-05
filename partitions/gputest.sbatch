@@ -43,7 +43,7 @@ date
 # Print which partition we are using.
 echo $SLURM_JOB_PARTITION
 # Print the compute node's name.
-hostname -s
+echo "Hello from $(hostname -s)"
 # Print which gpu we are using.
 nvidia-smi -i "${CUDA_VISIBLE_DEVICES}"
 # Print the date again.
