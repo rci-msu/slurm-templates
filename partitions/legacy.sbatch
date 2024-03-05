@@ -38,7 +38,7 @@
 # Print out the date
 date
 # Print which partition we are using
-echo $SLURM_JOB_PARTITION
+echo "partition = ${SLURM_JOB_PARTITION}"
 # Print the compute node's name
 echo "Hello from $(hostname -s)"
 # Print the date again
