@@ -1,0 +1,1 @@
+../../partitions/nextgen-long.sbatch
