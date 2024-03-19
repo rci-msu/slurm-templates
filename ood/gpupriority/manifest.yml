@@ -1,0 +1,4 @@
+name: Tempest GPU priority partition template
+host: tempest
+script: gpupriority.sbatch
+notes: Basic sbatch script for submitting to the gpupriority partition. Remember to update the account name.

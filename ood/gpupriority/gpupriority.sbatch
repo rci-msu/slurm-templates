@@ -1,0 +1,1 @@
+../../partitions/gpupriority.sbatch

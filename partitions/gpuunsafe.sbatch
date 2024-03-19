@@ -6,7 +6,7 @@
 ## All other lines are read by the shell.
 
 ## Specify the account to use; you must use your group account.
-#SBATCH --account=group-rci
+#SBATCH --account=group-
 
 ## Use the gpuunsafe partition.
 #SBATCH --partition=gpuunsafe
@@ -42,7 +42,7 @@
 # Print out the date.
 date
 # Print which partition we are using.
-echo $SLURM_JOB_PARTITION
+echo "partition = ${SLURM_JOB_PARTITION}"
 # Print the compute node's name.
 echo "Hello from $(hostname -s)"
 # Print which gpu we are using.

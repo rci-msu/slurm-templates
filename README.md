@@ -2,4 +2,18 @@
 
 This repository contains SBATCH examples and templates.
 
-The idea is that these templates will end up on the website and be available in OOD.
+## Organization
+
+| directory    | purpose                                |
+|--------------|----------------------------------------|
+| `partitions` | Basic examples for each partition      |
+| `ood`        | Job Composer templates for tempest-web |
+
+## Deployment
+
+### Open OnDemand (tempest-web)
+All templates in the `ood` directory are deployed to tempest-web with the `deploy-to-ood.sh` script. Run that script from your local machine, not tempest-web.
+
+### User home directories
+
+TBD.

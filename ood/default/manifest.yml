@@ -1,0 +1,4 @@
+name: Tempest default job template
+host: tempest
+script: main_job.sh
+notes: Basic sbatch script for submitting to the test partition.

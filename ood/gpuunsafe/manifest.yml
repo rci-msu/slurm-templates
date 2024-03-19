@@ -1,0 +1,4 @@
+name: Tempest GPU unsafe partition template
+host: tempest
+script: gpuunsafe.sbatch
+notes: Basic sbatch script for submitting to the gpuunsasfe partition. Remember to update the account name.

@@ -1,0 +1,4 @@
+name: Tempest nextgen partition template
+host: tempest
+script: nextgen.sbatch
+notes: Basic sbatch script for submitting to the nextgen partition. The nextgen partition is a fairshare partition. Remember to update the account name.

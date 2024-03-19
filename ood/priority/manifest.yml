@@ -1,0 +1,4 @@
+name: Tempest priority partition template
+host: tempest
+script: priority.sbatch
+notes: Basic sbatch script for submitting to the priority partition. Remember to update the account name.
