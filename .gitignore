@@ -1,0 +1,3 @@
+# sbatch output and error files
+*.out
+*.err
