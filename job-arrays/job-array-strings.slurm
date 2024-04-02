@@ -1,23 +1,36 @@
 #!/bin/bash
 ##
-#SBATCH --account=group-rci 		    # priority account to use
-#SBATCH --job-name=array             # job name
-#SBATCH --partition=test                # queue partition to run the job in
-#SBATCH --nodes=1                       # number of nodes to allocate
-#SBATCH --ntasks-per-node=1             # number of descrete tasks - keep at one except for MPI
-#SBATCH --cpus-per-task=1		        # number of cores to allocate - do not allocate more than 16 cores per GPU
-#SBATCH --mem=2000M                     # 2000 MB of Memory allocated - do not allocate more than 128000 MB mem per GPU
-#SBATCH --time=0-00:10:00               # Maximum job run time
-#SBATCH --output=array_%A_%3a.out 	# standard output file (%A = jobid, %a = arrayid)
-#SBATCH --error=array_%A_%3a.err 	# standard error file
+#SBATCH --account=group-rci
+#SBATCH --partition=test
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=2G
+#SBATCH --time=0-00:01:00
+
+#SBATCH --job-name=array
+## %A is the slurm job number, and %a is the array number within the job.
+## %x is the job name.
+#SBATCH --output=%x-%A-%3a.out
+#SBATCH --error=%x-%A-%3a.err
+
 #SBATCH --array=0-2
-##SBATCH --mail-user=<email address>	# email address to recieve job updates
-##SBATCH --mail-type=ALL			# conditions to recieve emial notifications for job
-## Run 'man sbatch' for more information on the options above.
 
-strings=("string0" "string1" "string2")
+# Define an array of strings to use as input for the program.
+# In this case, the "program" is "echo", which will print the strings.
+array=(
+    "string0"
+    "string1"
+    "string2"
+)
 
+# Print out which node we are running on. Each job in an array might run on
+# a different node.
 echo "Hello from $(hostname)."
 
-echo "${strings[${SLURM_ARRAY_TASK_ID}]}"
+# ${SLURM_ARRAY_TASK_ID} is the job array number set by slurm (0, 1, or 2, in this example).
+echo "Task ID: ${SLURM_ARRAY_TASK_ID}"
+
+# Print the strings in the array.
+# To access the string at a particular index in the array, we index into the array using
+# ${SLURM_ARRAY_TASK_ID}.
+echo "${array[${SLURM_ARRAY_TASK_ID}]}"
 
