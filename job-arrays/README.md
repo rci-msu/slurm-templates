@@ -6,8 +6,8 @@ Job arrays are useful when your workload needs to be run many times with a diffe
 
 | Directory         | Description                                                           |
 |-------------------|-----------------------------------------------------------------------|
-| basic             | Minimal working examples showing common job array use cases           |
-| dependencies      | Examples showcasing job arrays with job dependencies                  |
+| `basic`           | Minimal working examples showing common job array use cases.          |
+| `advanced`        | Advanced job array examples for common use cases.                     |
 
 ## More resources
 
