@@ -1,4 +1,5 @@
 #!/bin/bash
-# remove generated files
+#
+# Remove generated files
 rm -rf top*
 rm -rf log

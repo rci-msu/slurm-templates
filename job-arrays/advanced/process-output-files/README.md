@@ -2,7 +2,7 @@
 
 Having to process the output from multiple runs of a program is a common task; for example, you may want to compute some statistics or select the best-performing parameter.
 
-This example just concatenates the output files together, but this shows you how to use job dependencies to process the output files from a job array.
+This example just concatenates the output files together, but this shows you an example of how to use job dependencies to process the output files from a job array.
 
 | File                      | Description                                   |
 |---------------------------|-----------------------------------------------|
@@ -11,7 +11,7 @@ This example just concatenates the output files together, but this shows you how
 | `run.sh`                  | Entrypoint for running the slurm jobs.        |
 
 ## Usage
-1. Make sure the `run.sh` script has execute permissions:
+0. Make sure the `run.sh` script has execute permissions:
     `chmod +x run.sh`
-2. Run the `run.sh` script:
+1. Run the `run.sh` script:
     `./run.sh`

@@ -5,7 +5,7 @@
 #SBATCH --account=group-rci
 #SBATCH --partition=test
 #SBATCH --cpus-per-task=1
-#SBATCH --mem=2G
+#SBATCH --mem=1G
 #SBATCH --time=0-00:01:00
 
 #SBATCH --job-name=job-array
@@ -21,6 +21,6 @@
 # ${SLURM_ARRAY_TASK_ID} is the job array number set by slurm (1, 2, or 3, in this example).
 echo "Task ID: ${SLURM_ARRAY_TASK_ID}"
 
-# The task ID will end up in the .out file for each task in the job array. combine-outputs.slurm
-# is used to combine all the output files into a single file.
+# The task ID will end up in the .out file for each task in the job array.
+# combine-outputs.slurm is used to combine all the output files into a single file.
 

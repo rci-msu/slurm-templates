@@ -6,16 +6,15 @@
 #SBATCH --account=group-rci
 #SBATCH --partition=test
 #SBATCH --cpus-per-task=1
-#SBATCH --mem=2G
+#SBATCH --mem=1G
 #SBATCH --time=0-00:01:00
 
 #SBATCH --job-name=combine-output
-## %x is the job name.
 
-# We don't use the job's output file here since this job won't print
-# anything to stdout. Note that you could intentionally print the combined
-# output to stdout, then the job's output file would have the combined output
-# of all the tasks in the job array.
+## We don't use the job's output file here since this job won't print
+## anything to stdout. Note that you could intentionally print the combined
+## output to stdout, then the job's output file would have the combined output
+## of all the tasks in the job array.
 #SBATCH --output=%x.out
 #SBATCH --error=%x.err
 

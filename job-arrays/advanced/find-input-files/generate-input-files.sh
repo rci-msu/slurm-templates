@@ -1,5 +1,27 @@
 #!/bin/bash
+#
+# Generate dummy files for use as input in a job array.
+#
+# The files are organized in a hiearchy of subdirectories:
+# ├── top1
+# │   ├── sub1
+# │   ├── sub2
+# │   ├── sub3
+# │   └── sub4
+# ├── top2
+# │   ├── sub1
+# │   ├── sub2
+# │   ├── sub3
+# │   └── sub4
+# └── top3
+#     ├── sub1
+#     ├── sub2
+#     ├── sub3
+#     └── sub4
+# 
+# There are 10 files in each subdirectory.
 
+# Define directory and file structure
 TOPLEVEL_DIRS=("top1"  "top2"  "top3")
 SUBDIRS=("sub1"  "sub2"  "sub3"  "sub4")
 N_FILES_PER_SUBDIR=10
