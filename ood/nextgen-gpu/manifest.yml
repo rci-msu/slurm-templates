@@ -1,0 +1,4 @@
+name: Tempest nextgen GPU partition template
+host: tempest
+script: nextgen-gpu.sbatch
+notes: Basic sbatch script for submitting to the nextgen-gpu partition. The nextgen partition is a fairshare partition. Remember to update the account name.

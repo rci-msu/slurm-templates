@@ -1,0 +1,4 @@
+name: Tempest unsafe partition template
+host: tempest
+script: unsafe.sbatch
+notes: Basic sbatch script for submitting to the unsafe partition. Remember to update the account name.

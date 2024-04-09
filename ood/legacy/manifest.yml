@@ -1,0 +1,4 @@
+name: Tempest legacy partition template
+host: tempest
+script: legacy.sbatch
+notes: Basic sbatch script for submitting to the legacy partition. Remember to update the account name.

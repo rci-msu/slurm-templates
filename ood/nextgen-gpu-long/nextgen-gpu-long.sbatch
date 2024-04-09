@@ -1,0 +1,1 @@
+../../partitions/nextgen-gpu-long.sbatch

@@ -1,0 +1,4 @@
+name: Tempest GPU test partition template
+host: tempest
+script: gputest.sbatch
+notes: Basic sbatch script for submitting to the gputest partition. Remember to update the account name.

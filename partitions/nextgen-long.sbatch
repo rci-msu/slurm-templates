@@ -6,9 +6,9 @@
 ## All other lines are read by the shell.
 
 ## Specify the account to use; you must use your group account.
-#SBATCH --account=group-rci
+#SBATCH --account=group-
 
-## Use the nextgen partition.
+## Use the nextgen-long partition.
 #SBATCH --partition=nextgen-long
 
 ## Number of CPUs to allocate. Note that in the slurm, CPUs correspond to
@@ -38,7 +38,7 @@
 # Print out the date
 date
 # Print which partition we are using
-echo $SLURM_JOB_PARTITION
+echo "partition = ${SLURM_JOB_PARTITION}"
 # Print the compute node's name
 echo "Hello from $(hostname -s)"
 # Print the date again
