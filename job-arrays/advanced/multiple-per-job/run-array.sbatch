@@ -6,10 +6,10 @@
 ##
 
 #SBATCH --account=group-rci
-#SBATCH --partition=unsafe
-#SBATCH --cpus-per-task=10
-#SBATCH --mem=30G
-#SBATCH --time=0-00:10:00
+#SBATCH --partition=test
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=2G
+#SBATCH --time=0-00:02:00
 
 #SBATCH --job-name=multiple-task-id
 ## %A is the slurm job number, and %a is the array number within the job.
@@ -28,11 +28,16 @@ echo "Hello from $(hostname)."
 # ${SLURM_ARRAY_TASK_ID} is the job array number set by slurm (0, 1, or 2, in this example).
 echo "Task ID: ${SLURM_ARRAY_TASK_ID}"
 
+# do some math to get the numbers
 step=10
 start=$(( 10 * SLURM_ARRAY_TASK_ID ))
 stop=$(( start + step - 1))
 number_list=$(seq $start $stop)
 
-# run multiple instances of a program with in a job
+# print out the numbers in the list
+echo $number_list
 
-seq $start $stop | xargs -P $step -I _ echo _ 
+# run multiple instances of a program within a job in parallel
+# the number in parallel is the set by slurm up top
+seq $start $stop | xargs -P ${SLURM_CPUS_PER_TASK} -I _ echo _  "task from slurm task ${SLURM_ARRAY_TASK_ID}"
+
