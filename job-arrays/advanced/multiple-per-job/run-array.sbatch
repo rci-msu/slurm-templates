@@ -17,7 +17,7 @@
 #SBATCH --output=%x-%A-%3a.out
 #SBATCH --error=%x-%A-%3a.err
 
-## Array range doesn't have to start at 0.
+## Array range can start at zero and will still function.
 #SBATCH --array=0-3
 
 # Print out which node we are running on. Each job in an array might run on
@@ -25,15 +25,16 @@
 echo "Hello from $(hostname)."
 
 # Print the task ID
-# ${SLURM_ARRAY_TASK_ID} is the job array number set by slurm (1, 2, or 3 in this example).
+# ${SLURM_ARRAY_TASK_ID} is the job array number set by slurm (0, 1, 2, or 3 in this example).
 echo "Task ID: ${SLURM_ARRAY_TASK_ID}"
 
-# the step size to set how many to run in a single job
+# the step size
+# set how many to run in a single job
 step=10
 
 # do some math to count up from 
-# step*SLURM_ARRAY_TASK_ID (10*1 = 10) to
-# start + step - 1 (10 + 10 - 1 = 19) 
+# step*SLURM_ARRAY_TASK_ID IE (10*1 = 10) to
+# start + step - 1 IE (10 + 10 - 1 = 19) 
 start=$(( $step * SLURM_ARRAY_TASK_ID ))
 stop=$(( start + step - 1))
 
@@ -49,7 +50,7 @@ echo $(seq $start $stop)
 # -P sets the number of cpus to use 
 # -I set the character that represents the input
 # for us we set the number of cpus we used in slurm
-# and we are usin '{}' as the input character replacement
+# and we are using '{}' as the input character replacement
 seq $start $stop | xargs -P ${SLURM_CPUS_PER_TASK} -I {} \
 	printf "task %s from slurm array task %s\n" "{}" "${SLURM_ARRAY_TASK_ID}"
 
