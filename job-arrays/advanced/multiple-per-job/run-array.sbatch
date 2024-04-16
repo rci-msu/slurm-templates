@@ -1,7 +1,7 @@
 #!/bin/bash
 ##
 ## Minimal working example to run multiple programs in a job in an array
-## Uses XARGS to acomplish this
+## Uses XARGS to accomplish
 ##
 
 #SBATCH --account=group-rci
@@ -40,11 +40,11 @@ stop=$(( start + step - 1))
 echo $(seq $start $stop)
 
 my_func () {
-  echo $1 "task from slurm task ${SLURM_ARRAY_TASK_ID}"
+  echo "task $1 from slurm array task ${SLURM_ARRAY_TASK_ID}"
 }
 
 # run multiple instances of a program within a job in parallel
-# the number in parallel is the set by slurm up top
+# the number in parallel is the set by slurm up top cpus-per-task
 seq $start $stop | xargs -P ${SLURM_CPUS_PER_TASK} -I _ echo my_func _
 
 
