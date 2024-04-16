@@ -1,8 +1,7 @@
 #!/bin/bash
 ##
-## Minimal working example of passing the task ID to your program in a job array.
-## This is useful when the input to your code can be an integer or the parameter
-## you're sweeping over can be mapped to / indexed by an integer.
+## Minimal working example to run multiple programs in a job in an array
+## Uses XARGS to acomplish this
 ##
 
 #SBATCH --account=group-rci
@@ -28,17 +27,24 @@ echo "Hello from $(hostname)."
 # ${SLURM_ARRAY_TASK_ID} is the job array number set by slurm (1, 2, or 3 in this example).
 echo "Task ID: ${SLURM_ARRAY_TASK_ID}"
 
-# do some math to count up 10 from 10*SLURM_ARRAY_TASK_ID
+# the step size to set how many to run in a single job
 step=10
-start=$(( 10 * SLURM_ARRAY_TASK_ID ))
+
+# do some math to count up from 
+# step*SLURM_ARRAY_TASK_ID (10*1 = 10) to
+# start + step - 1 (10 + 10 - 1 = 19) 
+start=$(( $step * SLURM_ARRAY_TASK_ID ))
 stop=$(( start + step - 1))
-number_list=$(seq $start $stop)
 
 # print out the numbers in the list
-echo $number_list
+echo $(seq $start $stop)
+
+my_func () {
+  echo $1 "task from slurm task ${SLURM_ARRAY_TASK_ID}"
+}
 
 # run multiple instances of a program within a job in parallel
 # the number in parallel is the set by slurm up top
-seq $start $stop | xargs -P ${SLURM_CPUS_PER_TASK} -I _ echo _  "task from slurm task ${SLURM_ARRAY_TASK_ID}"
+seq $start $stop | xargs -P ${SLURM_CPUS_PER_TASK} -I _ echo my_func _
 
 
