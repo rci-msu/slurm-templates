@@ -25,10 +25,10 @@
 echo "Hello from $(hostname)."
 
 # Print the task ID
-# ${SLURM_ARRAY_TASK_ID} is the job array number set by slurm (0, 1, or 2, in this example).
+# ${SLURM_ARRAY_TASK_ID} is the job array number set by slurm (1, 2, or 3 in this example).
 echo "Task ID: ${SLURM_ARRAY_TASK_ID}"
 
-# do some math to get the numbers
+# do some math to count up 10 from 10*SLURM_ARRAY_TASK_ID
 step=10
 start=$(( 10 * SLURM_ARRAY_TASK_ID ))
 stop=$(( start + step - 1))
