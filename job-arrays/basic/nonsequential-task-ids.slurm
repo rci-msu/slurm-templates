@@ -17,7 +17,7 @@
 #SBATCH --output=%x-%A-%3a.out
 #SBATCH --error=%x-%A-%3a.err
 
-## Array range doesn't have to start at 0.
+## Array range doesn't have to start at 0 or be sequential.
 #SBATCH --array=1,10-13,40,20
 
 # Print out which node we are running on. Each job in an array might run on
